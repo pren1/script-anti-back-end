@@ -110,7 +110,7 @@ class txt_processor:
 			# Skip if no message occur within such an interval
 			if len(index_list) == 0:
 				continue
-			# Then, obtain the corresponding message lists, figure out 
+			# Then, obtain the corresponding message lists
 			Message_list = Message[index_list]
 			# Process the unique message:
 			Message_unique, index_unique, count_unique = np.unique(Message_list, return_index = True, return_counts=True)

@@ -6,8 +6,9 @@ import numpy as np
 # Deal with the strings within txt, count the string frequency
 
 class txt_processor:
-	def __init__(self, path_to_txt):
+	def __init__(self, path_to_txt, target_danmaku_list = []):
 		self.path = path_to_txt
+		self.target_danmaku_list = target_danmaku_list
 		self.txt_list = []
 
 	def read_target_txt(self):
@@ -22,6 +23,9 @@ class txt_processor:
 		self.txt_list = self.preprocess_readin_list()
 		# Turn to numpy array...
 		self.txt_list = np.asarray(self.txt_list)
+		return self.txt_list
+	
+	def Find_Fashion_message(self):
 		if len(self.txt_list) == 0:
 			return []
 		# Process the data, and figure out the message that occurs frequently within a small time-interval
@@ -29,6 +33,17 @@ class txt_processor:
 		# remove the duplicate messages in Message_detected
 		unique_message_found = np.unique(Message_detected)
 		return unique_message_found
+
+	def Uid_scanner(self):
+		# Scan all the danmaku, and find all the UIDs that sends those danmakus(?)
+		if len(self.txt_list) == 0:
+			return []
+		assert len(self.target_danmaku_list) > 0
+		UID_suspector = []
+		for single_ in self.txt_list:
+			if single_[2] in self.target_danmaku_list:
+				UID_suspector.append(single_[1])
+		return UID_suspector
 
 	def preprocess_readin_list(self):
 		# Remove the SPEAKERNUM, and append Time stamp to each message

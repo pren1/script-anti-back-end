@@ -1,5 +1,5 @@
 # 黑名单挖掘
-鉴于 [3Shain](https://gist.github.com/3Shain) 正在开发对抗脚本的[脚本](https://gist.github.com/3Shain/e831b4b15999600994521c59e6f98708)，并且其中需要脚本已经控制的黑名单，这个简单的程序的作用就是从 [VTB/VUP DD](https://github.com/bilibili-dd-center) 的 [bilibili-vtuber-danmaku](https://github.com/bilibili-dd-center/bilibili-vtuber-danmaku) 数据库中找出 3Shain 脚本中需要的黑名单
+鉴于 [3Shain](https://gist.github.com/3Shain) 正在开发[对抗脚本的脚本](https://gist.github.com/3Shain/e831b4b15999600994521c59e6f98708)，并且其中需要脚本已经控制的黑名单，这个简单的程序的作用就是从 [VTB/VUP DD](https://github.com/bilibili-dd-center) 的 [bilibili-vtuber-danmaku](https://github.com/bilibili-dd-center/bilibili-vtuber-danmaku) 数据库中找出 3Shain 脚本中需要的黑名单
 整个流程分为两步：
 1. 找出脚本哥发的弹幕
 2. 找到那些弹幕对应的UID

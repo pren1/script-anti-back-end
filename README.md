@@ -27,7 +27,7 @@ python3 Filter_construct.py False
 
 结果已经存在UID.txt里，或者如下图：
 
-![image](http://github.com/pren1/script-anti-back-end/image/UIDs.png)
+![image](http://github.com/pren1/script-anti-back-end//raw/master/image/UIDs.png)
 
 # 令人生草的副产品
 

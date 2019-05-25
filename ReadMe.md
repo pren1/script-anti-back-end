@@ -19,7 +19,9 @@ python3 Filter_construct.py
 
 Fashion_message.txt 包含了程序运行的结果，所以你不必自己去运行上面的程序。
 
-第二步，通过阅读Fashion_message.txt, 我们可以手动找出脚本哥发过的弹幕。之后，在把所有发过那些弹幕的UID找出来就可以了。结果存在UID.txt里。
+第二步，通过阅读Fashion_message.txt, 我们可以手动找出脚本哥发过的弹幕。之后，在把所有发过那些弹幕的UID找出来就可以了。通过运行：
+
+结果已经存在UID.txt里。
 
 # 令人生草的副产品
 

@@ -12,14 +12,18 @@
 你可以下载本仓库里的代码，然后把来自 [VTB/VUP DD](https://github.com/bilibili-dd-center) 的数据库放进和代码同一个文件夹下，然后用python3运行：
 
 ```
-python3 Filter_construct.py
+python3 Filter_construct.py True
 ```
 
 ⚠️注意⚠️运行这个程序要花费数个小时。
 
 Fashion_message.txt 包含了程序运行的结果，所以你不必自己去运行上面的程序。
 
-第二步，通过阅读Fashion_message.txt, 我们可以手动找出脚本哥发过的弹幕。之后，在把所有发过那些弹幕的UID找出来就可以了。通过运行：
+第二步，通过阅读Fashion_message.txt, 我们可以手动找出脚本哥发过的弹幕。之后，在把所有发过那些弹幕的UID找出来就可以了。运行以下命令即可：
+
+```
+python3 Filter_construct.py False
+```
 
 结果已经存在UID.txt里。
 

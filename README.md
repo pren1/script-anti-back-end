@@ -9,9 +9,12 @@
 
 因为弹幕的数据已经包含了时间戳，整个事情变得非常简单：用一个时长为两秒的滑动窗口来滑过数据，每次只关注这个滑动窗口之中包含的弹幕，并且计算这些弹幕出现的次数。如果某个弹幕出现的次数超过了5次，那么我们就把它记录下来。
 
-你可以下载本仓库里的代码，然后把来自 [VTB/VUP DD](https://github.com/bilibili-dd-center) 的数据库和代码放进同一个文件夹下，用python3运行：
+你可以下载本仓库里的代码，然后更新来自 [VTB/VUP DD](https://github.com/bilibili-dd-center) 的数据库，然后用python3运行：
 
-```
+```sh
+git clone https://github.com/pren1/script-anti-back-end.git
+cd script-anti-back-end
+git submodule update --init --remote --depth 1
 python3 Filter_construct.py True
 ```
 

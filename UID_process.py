@@ -66,6 +66,8 @@ class UID_process:
 			for danmaku_info in danmaku_info_list:
 				current_uid = danmaku_info[1]
 				current_message = danmaku_info[2]
+				if not current_message.startswith('【'):
+					continue
 				'First, check if the uid lives in the list'
 				if current_uid in self.uid_index:
 					'Then, set everything'
@@ -103,7 +105,7 @@ if __name__ == '__main__':
 	input_path = "bilibili-vtuber-danmaku-master/"
 	output_path = "danmaku_info.csv"
 	'Remove target uid unless that uid sent more than 20 messages'
-	minimum_shown_number = 20
+	minimum_shown_number = 0
 	uid_processor = UID_process(uid_path, input_path, output_path)
 	uid_processor.reiterate_danmaku_data()
 	uid_processor.post_process()

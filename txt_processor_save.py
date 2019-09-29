@@ -57,27 +57,25 @@ class txt_processor:
 				continue
 			else:
 				# Find the first occurance of ':'
-				sign_pos = single_string.find(':')
+				sign_pos = single_string.rfind(':')
 				if sign_pos == -1:
 					# Assign a fake UID
-					UID = 114514
-					message = single_string
+					pass
+					# UID = 114514
+					# message = single_string
 				else:
 					# assert single_string[:sign_pos].isdigit() == True
 					if single_string[:sign_pos].isdigit() != True:
 						# Assign a fake UID, in this condition, the string itself contains ':', and no UID is provided here
-						UID = 114514
-						message = single_string
+						# UID = 114514
+						# message = single_string
+						# pdb.set_trace()
+						pass
 					else:
-						sign_pos = single_string.rfind(':')
-						UID_string = single_string[:sign_pos]
-						uid_sign_pos = UID_string.find(':')
-						if uid_sign_pos == -1:
-							UID = int(UID_string)
-						else:
-							UID = UID_string[uid_sign_pos + 1:]
+						UID = int(single_string[:sign_pos])
 						message = single_string[sign_pos + 1:]
-				new_list.append([current_time_stamp, UID, message])
+						# new_list.append([current_time_stamp, UID, message])
+						new_list.append(message)
 		return new_list
 
 	def Time_to_stamp_number(self, time_string):

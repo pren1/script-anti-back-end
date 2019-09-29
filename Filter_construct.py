@@ -69,12 +69,14 @@ if __name__ == '__main__':
 	assert len(sys.argv)==2, "wrong input parameter length, require 1, input {}".format(len(sys.argv))
 	Run_Fashion = sys.argv[1]
 	input_path = "bilibili-vtuber-danmaku-master/"
-	output_path = "Fashion_message_total.txt"
+	# Add to vedio_danmaku_text!
+	output_path = "vedio_danmaku_text.txt"
 	Fassion_message_path = "Fashion_message.txt"
 	suspect_UID_path = "UID.txt"
 	file_scan = File_scan(input_path)
 	all_file_paths = file_scan.path_gen()
 	Fashion_message_list = []
+	target_danmaku_list = read_target_dirty_danmakus("./dirty_danmaku.txt")
 	if Run_Fashion == 'True':
 		# Scan and figure out the Fashion_message
 		# The results are saved on the Fashion_message.txt, so you do not need to run the following
@@ -84,15 +86,20 @@ if __name__ == '__main__':
 			# process_index = 7
 			# single_file_path = all_file_paths[process_index]
 			processor = txt_processor(single_file_path)
-			processor.read_target_txt()
-			Fashion_message = processor.Find_Fashion_message()
-
-			if len(Fashion_message) > 0:
-				Fashion_message_list.append(Fashion_message)
-				print_output_to_file(output_path, Fashion_message)
-			print("{}th data processed within {}".format(process_index, "--- %s seconds ---" % (time.time() - start_time)))
+			candidate_danmakus = processor.read_target_txt()
+			# Fashion_message = processor.Find_Fashion_message()
+			if len(candidate_danmakus) > 0:
+				# Fashion_message_list.append(Fashion_message)
+				res_list = []
+				for candidate in candidate_danmakus:
+					if candidate not in target_danmaku_list:
+						res_list.append(candidate)
+				print_output_to_file(output_path, res_list)
+				print("{}th data processed within {}".format(process_index, "--- %s seconds ---" % (time.time() - start_time)))
+			else:
+				print("{}th data skipped within {}".format(process_index, "--- %s seconds ---" % (time.time() - start_time)))
 		# Obtain the Fashion_message.txt
-		Get_unique_fassion_message(output_path, Fassion_message_path)
+		# Get_unique_fassion_message(output_path, Fassion_message_path)
 	else:
 		# Here is the harmful message I obtained from the Fashion_message_list:
 		suspect_UIDs = []

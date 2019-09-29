@@ -1,5 +1,7 @@
 # 黑名单挖掘
 
+【Update 9/29/2017】: 对过去几个月的弹幕重新挖掘，增添了新封禁名单，共902个账号
+
 【Update 7/13/2017】: 运行 UID_process.py，将会获得在UID.txt里的每一个UID发送弹幕的情况，结果存在danmaku_info.csv里
 
 鉴于 [3Shain](https://gist.github.com/3Shain) 正在开发[对抗脚本的脚本](https://gist.github.com/3Shain/e831b4b15999600994521c59e6f98708)，并且其中需要脚本哥已经控制的黑名单，这个简单的程序的作用就是从 [VTB/VUP DD](https://github.com/bilibili-dd-center) 的 [bilibili-vtuber-danmaku](https://github.com/bilibili-dd-center/bilibili-vtuber-danmaku) 数据库中找出 3Shain 脚本中需要的黑名单。

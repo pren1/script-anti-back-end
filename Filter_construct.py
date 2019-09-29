@@ -59,6 +59,12 @@ def Get_unique_fassion_message(output_path, Fassion_message_path):
 	print_output_to_file(Fassion_message_path, unique_message_list)
 	return unique_message_list
 
+def read_target_dirty_danmakus(path):
+	with open(path, "r") as txtfile:
+		data = txtfile.readlines()
+	data = [line.strip() for line in data]
+	return data
+
 if __name__ == '__main__':
 	assert len(sys.argv)==2, "wrong input parameter length, require 1, input {}".format(len(sys.argv))
 	Run_Fashion = sys.argv[1]
@@ -90,14 +96,7 @@ if __name__ == '__main__':
 	else:
 		# Here is the harmful message I obtained from the Fashion_message_list:
 		suspect_UIDs = []
-		target_danmaku_list = ["我宫内莲华来呼吸夏哥了！",
-			"我是“774ガチ恋勢”，我前来DD了！",
-			"俺のID「774ガチ恋勢」ですよろしく",
-			"来DD了，我是宫内莲华Official", 
-			"宫内莲华Official，前来DD了！",
-			"俺の名は774ガチ恋勢です，よろしく！",
-			"俺のID「774ガチ恋勢」です",
-			"僕の名は774ガチ恋勢です，よろしく"]
+		target_danmaku_list = read_target_dirty_danmakus("./dirty_danmaku.txt")
 		for (process_index, single_file_path) in zip(range(len(all_file_paths)), all_file_paths):
 			start_time = time.time()
 			processor = txt_processor(single_file_path, target_danmaku_list)
